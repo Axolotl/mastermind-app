@@ -4,10 +4,11 @@
   "description": "Mastermind App a project by Axolotl",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
   },
   "keywords": [],
-  "author": "",
+  "author": "Axolotl",
   "license": "ISC",
   "babel": {
     "presets": [
@@ -23,5 +24,8 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
 }
