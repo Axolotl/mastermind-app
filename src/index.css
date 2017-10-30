@@ -1,0 +1,36 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #app, #app-container {
+  height: 100vh;
+}
+
+#app {
+
+}
+
+#app-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.column {
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  margin: 30px 10px 30px 10px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#control-title {
+  margin: 0px;
+}
+
+.control-text {
+  margin: 10px 5px;
+  text-align: left;
+}
