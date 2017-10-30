@@ -1,9 +1,13 @@
-const React = require('react');
+import React from 'react';
 
 class App extends React.Component {
   render() {
     return (
-      console.log('hello world')
+      <div id='app-container'>
+        <h1>hello world</h1>
+      </div>
     )
   }
 }
+
+export default App;
