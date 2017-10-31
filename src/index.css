@@ -34,3 +34,12 @@ html, body, #app, #app-container {
   margin: 10px 5px;
   text-align: left;
 }
+
+.input {
+  margin: 15px 0px;
+}
+
+#error-text {
+  margin: 0px;
+  color: #cc0000;
+}
