@@ -10,8 +10,8 @@ class Game extends React.Component {
   }
   componentDidMount() {
     for (let i=0; i<10; i++) {
-      this.state.entries['entry'+i] = '0000';
-      this.state.results['result'+i] = '0000';
+      this.state.entries['entry'+i] = '';
+      this.state.results['result'+i] = '';
       this.setState({
         entries: this.state.entries,
         results: this.state.results,
