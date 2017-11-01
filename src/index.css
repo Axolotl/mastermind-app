@@ -1,3 +1,5 @@
+/* Styles for App.js */
+
 body {
   padding: 0;
   margin: 0;
@@ -26,6 +28,8 @@ html, body, #app, #app-container {
   border-width: 2px;
 }
 
+/* Styles for Control.js */
+
 #control-title {
   margin: 0px;
 }
@@ -42,4 +46,40 @@ html, body, #app, #app-container {
 #error-text {
   margin: 0px;
   color: #cc0000;
+}
+
+.attempt {
+  height: 20px;
+  width: 20px;
+  border-style: solid;
+}
+
+/* Styles for Game.js */
+
+#game-title {
+  margin: 0px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+}
+
+#game-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-column {
+  margin: 20px 15px;
+}
+
+.table-column-title {
+  margin: 5px;
 }
