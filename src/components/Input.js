@@ -33,6 +33,10 @@ class Input extends React.Component {
       this.setState({valid: true});
       //passing valid input to dispatch handler
       this.handlers.handleDispatch(value);
+      //reset entry box
+      this.setState({
+        value: '',
+      })
     }
     else {
       this.setState({
@@ -52,6 +56,7 @@ class Input extends React.Component {
             placeholder='valid if matches: /^[1-6]{4}$/'
             autoComplete='off'
             onChange={this.handleChange}
+            value={this.state.value}
             required/>
         </form>
         {!this.state.valid && !this.state.firstAttempt ? (
