@@ -29,15 +29,12 @@ class Input extends React.Component {
   }
   handleSubmit = (event) => {
     let value = this.state.value;
-    console.log(`YOU ENTERED: ${value}`);
     if (value.match(/^[1-6]{4}$/)) {
-      console.log('Valid entry');
       this.setState({valid: true});
       //passing valid input to dispatch handler
       this.handlers.handleDispatch(value);
     }
     else {
-      console.log('Invalid entry');
       this.setState({
         valid: false,
         firstAttempt: false,
