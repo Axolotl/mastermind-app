@@ -3,10 +3,15 @@ import React from 'react';
 class Game extends React.Component {
   constructor(props) {
     super(props);
+    let secret_code = [];
+    for (let i=0; i<4; i++) {
+      secret_code.push(Math.floor((Math.random() * 6) + 1));
+    };
+    secret_code = secret_code.join('');
     this.state = {
       entries: [...Array(10)],
       results: [...Array(10)],
-      secret_code: '6655',
+      secret_code: secret_code,
     };
   }
   calculateResult(play, code) {
