@@ -1,22 +1,23 @@
 import React from 'react';
 
 class Game extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      entries: [],
-      results: [],
+      entries: [...Array(10)],
+      results: [...Array(10)],
     };
   }
-  componentDidMount() {
-    for (let i=0; i<10; i++) {
-      this.state.entries['entry'+i] = '';
-      this.state.results['result'+i] = '';
+  componentWillReceiveProps(nextProps) {
+    if (this.state.plays != nextProps.plays) {
+      let play = nextProps.plays.pop();
+      let nextEntries = this.state.entries;
+      nextEntries.splice(play.id, 1, play.num);
+
       this.setState({
-        entries: this.state.entries,
-        results: this.state.results,
+        entries: nextEntries,
       })
-    };
+    }
   }
   render() {
     return (

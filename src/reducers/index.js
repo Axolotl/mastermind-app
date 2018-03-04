@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const play = (state = [], action) => {
+const plays = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PLAY':
       return [
@@ -25,7 +25,7 @@ const board = (state = [], action) => {
 };
 
 const GameBoard = combineReducers({
-  play,
+  plays,
   board,
 });
 
