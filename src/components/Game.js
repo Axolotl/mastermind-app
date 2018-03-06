@@ -17,28 +17,23 @@ class Game extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.state.plays != nextProps.plays) {
-      //first check if the plays object is empty, if so reset component state
-      console.log('we got as far as nextprops being different')
-      console.log(nextProps)
+      //first check if board has been reset by checking if plays array is empty
+      //if so reset entries and results
       if (nextProps.plays.length == 0) {
-        console.log('we are in the first if statement')
         this.setState({
           entries: [...Array(10)],
           results: [...Array(10)],
         })
       }
 
-      //check if plays object has changed
+      //then check if game has been won or lost yet. if not, continue
       //iterate over plays object + check if each entry has been entered into local state
       //if not, calculate result
-      //then check for win or loss 
-      //if so, block new entries and display retry button
+      //then check if conditions for win or loss are true
 
       else if (this.state.win == false) {
-        console.log('eles if statement called');
         const { entries, results, code } = this.state; 
         nextProps.plays.map(play => {
-          console.log('we are in the map function now')
           const { num, id } = play; 
           if (num != entries[id]) {
             //calculate result for play
