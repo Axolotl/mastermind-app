@@ -6,7 +6,6 @@ import Game from '../components/Game';
 function mapStateToProps(state) {
   return {
     plays: state.plays,
-    test: 'test',
   }
 }
 

@@ -9,6 +9,10 @@ html, body, #app, #app-container {
   height: 100vh;
 }
 
+p {
+  margin: 0;
+}
+
 #app {
 
 }
@@ -79,9 +83,14 @@ td {
 }
 
 .table-column {
-  margin: 20px 15px;
+  margin: 20px 15px 20px 15px;
 }
 
 .table-column-title {
   margin: 5px;
+}
+
+.win_or_lose {
+  font-size: 1.8em;
+  margin: .2em;
 }
