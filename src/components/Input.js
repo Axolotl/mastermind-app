@@ -2,22 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addPlay } from '../actions';
 
-//create handler for dispatching plays/inputs to store
-let createHandlers = function(dispatch) {
-  let handleDispatch = function(data) {
-    dispatch(addPlay(data))
-  };
-  return {
-    handleDispatch,
-  };
-}
-
 //create component for validating input and passing it to handler
 class Input extends React.Component {
   constructor(props) {
     super(props);
-    //passing in props and linking them with handler
-    this.handlers = createHandlers(this.props.dispatch);
     this.state = {
       value: '',
       valid: false,
@@ -31,8 +19,8 @@ class Input extends React.Component {
     let value = this.state.value;
     if (value.match(/^[1-6]{4}$/)) {
       this.setState({valid: true});
-      //passing valid input to dispatch handler
-      this.handlers.handleDispatch(value);
+      //dispatch value to application state
+      this.props.dispatch(addPlay(value));
       //reset entry box
       this.setState({
         value: '',
