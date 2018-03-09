@@ -1,6 +1,7 @@
 import React from 'react';
 import ControlText from './ControlText';
 import Input from './Input';
+import InputDraggable from './InputDraggable'
 
 class Control extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class Control extends React.Component {
       <div id='control-column' className='column'>
         <ControlText />
         <Input />
+        <InputDraggable />
       </div>
     )
   }

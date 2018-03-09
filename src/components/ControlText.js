@@ -12,7 +12,7 @@ class ControlText extends React.Component {
           will receive feedback hinting whether 
           or not you are going in the right direction.
         </p>
-        <p className='control-text'>
+        {/*<p className='control-text'>
           Each digit will be a number from 1-6.
         </p>
         <p className='control-text'>
@@ -37,7 +37,7 @@ class ControlText extends React.Component {
         </p>
         <p className='control-text'>
           Enter your guess below.
-        </p>
+        </p>*/}
       </div>
     )
   }

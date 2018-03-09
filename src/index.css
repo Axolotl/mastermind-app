@@ -14,7 +14,6 @@ p {
 }
 
 #app {
-
 }
 
 #app-container{
@@ -28,6 +27,7 @@ p {
   width: 300px;
   padding: 15px;
   margin: 30px 10px 30px 10px;
+  border-radius: 3px;
   border-style: solid;
   border-width: 2px;
 }
