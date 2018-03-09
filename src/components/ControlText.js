@@ -6,13 +6,24 @@ class ControlText extends React.Component {
       <div id='control-text'>
         <h1 id='control-title'>Mastermind</h1>
         <p className='control-text'>
+          Built with React. Source <a href='https://github.com/Axolotl/mastermind-app'>here</a>.
+        </p>
+        <p className='control-text'>
+          Play by guessing the hidden pattern of colors. After each guess, you will receive feedback on
+          how close you got. Each black circle means you got the correct color in the correct position. 
+          Each white circle means you go the correct color but in the wrong position. Good luck. 
+        </p>
+        <p className='control-text'>
+          Play by dragging a color to each empty circle. Colors can be played more than once. Click submit when finished.
+        </p>
+        {/*<p className='control-text'>
           <b>Objective:</b> to guess the 4 number code 
           randomly chosen by the computer. You 
           have ten guesses. After each guess you
           will receive feedback hinting whether 
           or not you are going in the right direction.
         </p>
-        {/*<p className='control-text'>
+        <p className='control-text'>
           Each digit will be a number from 1-6.
         </p>
         <p className='control-text'>

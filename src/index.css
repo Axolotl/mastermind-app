@@ -7,10 +7,20 @@ body {
 
 html, body, #app, #app-container {
   height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+a {
+  color: #0000ee;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
 }
 
 p {
   margin: 0;
+  font-size: .9em;
 }
 
 #app {
@@ -34,8 +44,18 @@ p {
 
 /* Styles for Control.js */
 
+#control-title, #game-title {
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+}
+
 #control-title {
   margin: 0px;
+  font-size: 2.6em;
+}
+
+#game-title {
+  margin: 10px 0 0 0;
 }
 
 .control-text {
@@ -60,9 +80,7 @@ p {
 
 /* Styles for Game.js */
 
-#game-title {
-  margin: 0px;
-}
+
 
 table {
   border-collapse: collapse;
