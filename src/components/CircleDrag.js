@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 
-const circleStyle = {
-  height: '30px',
-  width: '30px',
-  borderRadius: '50%',
-  border: '2px solid black',
-  margin: '5px',
-}
-
-const Types = {
-  ITEM: 'circle'
-}
+import Circle from './Circle';
+import ItemTypes from './ItemTypes'
 
 const itemSource = {
   beginDrag(props) {
@@ -31,9 +22,11 @@ class CircleDrag extends Component {
   render() {
     const { isDragging, connectDragSource, src, color = 'white' } = this.props;
     return connectDragSource(
-      <div style={Object.assign({}, {background: color}, circleStyle)}></div>
+      <div>
+        <Circle color={color} />
+      </div>
     )
   }
 }
 
-export default DragSource(Types.ITEM, itemSource, collect)(CircleDrag)
+export default DragSource(ItemTypes.ITEM, itemSource, collect)(CircleDrag)

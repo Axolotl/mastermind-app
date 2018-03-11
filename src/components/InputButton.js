@@ -15,7 +15,12 @@ const buttonStyle = {
 class InputButton extends Component {
   render() {
     return (
-      <button style={buttonStyle}>Submit</button>
+      <form onClick={this.props.handleSubmit}>
+        <input 
+          type='button' 
+          style={buttonStyle} 
+          value={this.props.value}/>
+      </form>
     )
   }
 }

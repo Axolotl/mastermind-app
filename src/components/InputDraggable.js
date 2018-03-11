@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Circle from './Circle'
-import InputButton from './InputButton';
-import CircleDrag from './CircleDrag';
-import CircleDrop from './CircleDrop';
-
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
+import { connect } from 'react-redux';
+import { addPlay } from '../actions';
+import { compose } from 'redux';
+
+import CircleDrag from './CircleDrag';
+import CircleDrop from './CircleDrop';
+import InputButton from './InputButton';
 
 const colors = [
   'red',
@@ -15,8 +17,6 @@ const colors = [
   'blue',
   'purple', 
 ]
-
-const inputs = [...Array(4)]
 
 const wrapperStyle = {
   display: 'flex',
@@ -30,16 +30,36 @@ class InputDraggable extends Component {
     this.state = {
       current: '',
       inputs: [...Array(4)],
+      invalid: false,
     }
   }
   changeCircleColor = (index)  => {
     const { inputs } = this.state;
     inputs.splice(index, 1, this.state.current);
-    console.log(inputs);
     this.setState({inputs: inputs})
   }
   setCurrentDrag = (color) => {
     this.setState({current: color})
+  }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    let count = 0;
+    for (let i=0;i<4;i++) {
+      if (this.state.inputs[i] != null) {
+        count++;
+      }
+    }
+    if (count == 4) {
+      this.props.dispatch(addPlay(this.state.inputs));
+      this.setState({
+        inputs: [...Array(4)],
+        invalid: false,
+      })
+    }
+    else {
+      this.setState({invalid: true})
+    }
+    
   }
   render() {
     return (
@@ -56,8 +76,9 @@ class InputDraggable extends Component {
           })}
         </div>
 
+        <p style={{fontWeight: 'bold'}}>--------------------</p>
         <div style={wrapperStyle}>
-          {inputs.map((color, index) => {
+          {this.state.inputs.map((color, index) => {
             return (
               <CircleDrop 
                 key={'input' + index.toString()} 
@@ -68,10 +89,17 @@ class InputDraggable extends Component {
           })}
         </div>
         
-        <InputButton />
+        <InputButton handleSubmit={this.handleSubmit} value='Submit'/>
+
+        {this.state.invalid && 
+          <p id='error-text'>Invalid entry. Please fill all circles.</p> 
+        }
       </div>
     )
   }
 }
 
-export default DragDropContext(HTML5Backend)(InputDraggable);
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect()
+)(InputDraggable);

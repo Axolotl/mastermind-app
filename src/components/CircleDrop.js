@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { addPlay } from '../actions';
-
-const circleStyle = {
-  height: '30px',
-  width: '30px',
-  borderRadius: '50%',
-  border: '2px solid black',
-  margin: '5px',
-}
-
-const Types = {
-  ITEM: 'circle'
-}
+import Circle from './Circle';
+import ItemTypes from './ItemTypes'
 
 const itemTarget = {
   drop(props) {
@@ -33,12 +20,11 @@ class CircleDrop extends Component {
   render() {
     const { connectDropTarget, color = 'white' } = this.props;
     return connectDropTarget(
-      <div style={Object.assign({}, {background: color}, circleStyle)}></div>
+      <div>
+        <Circle color={color} />
+      </div>
     )
   }
 }
 
-export default compose(
-  DropTarget(Types.ITEM, itemTarget, collect),
-  connect()
-)(CircleDrop);
+export default DropTarget(ItemTypes.ITEM, itemTarget, collect)(CircleDrop)

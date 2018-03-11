@@ -1,18 +1,8 @@
 import React from 'react';
+
+import InputButton from './InputButton';
 import calculateResult from './calculateResult';
 import calculateCode from './calculateCode';
-
-const buttonStyle = {
-  display: 'inline-block',
-  borderRadius: '3px',
-  padding: '0.5rem 0',
-  margin: '0.5rem 1rem',
-  width: '7rem',
-  background: 'transparent',
-  color: 'black',
-  border: '2px solid black',
-  fontWeight: 'bold',
-}
 
 class Game extends React.Component {
   constructor(props) {
@@ -84,7 +74,6 @@ class Game extends React.Component {
   render() {
     return (
       <div id='game-column' className='column'>
-        <h2 id='game-title'>Can you guess the secret code?</h2>
         <div id='game-table'>
 
           <div className='table-column'>
@@ -126,7 +115,7 @@ class Game extends React.Component {
           {this.state.lose == true ? <p className='win_or_lose'>You lose!</p> : null}
         </div>
 
-        <button style={buttonStyle} onClick={this.restartGame}>Play again</button>
+        <InputButton handleSubmit={this.restartGame} value='Play again'/>
       </div>
     )
   }
