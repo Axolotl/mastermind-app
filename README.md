@@ -6,7 +6,9 @@ Project hosted on Firebase. [Link.](https://react-mastermind-axolotl.firebaseapp
 
 Setup instructions: 
 `npm install`
+
 Build instructions:
 `npm run build`
+
 Live load instructions:
 `npm run start`
