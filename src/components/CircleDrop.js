@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
 import Circle from './Circle';
-import ItemTypes from './ItemTypes'
+import ItemTypes from './ItemTypes';
 
 const itemTarget = {
   drop(props) {

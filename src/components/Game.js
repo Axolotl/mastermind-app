@@ -3,6 +3,15 @@ import React from 'react';
 import InputButton from './InputButton';
 import calculateResult from './calculateResult';
 import calculateCode from './calculateCode';
+import Circle from './Circle';
+
+const wrapperStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+}
+
+const winningPlay = [...Array(4)].map(()=>'black').join('');
 
 class Game extends React.Component {
   constructor(props) {
@@ -34,6 +43,7 @@ class Game extends React.Component {
       else if (this.state.win == false) {
         const { entries, results, code } = this.state; 
         nextProps.plays.map(play => {
+          //console.log(play.num);
           const { num, id } = play; 
           if (num != entries[id]) {
             //calculate result for play
@@ -44,7 +54,7 @@ class Game extends React.Component {
             results.splice(id, 1, result);
 
             //trigger win code
-            if (result == '2222') {
+            if (result.join('') == winningPlay) {
               this.setState({win: true})
             }
             //trigger lose code
@@ -66,12 +76,14 @@ class Game extends React.Component {
   restartGame = (e) => {
     e.preventDefault();
     this.setState({
+      code: calculateCode(),
       win: false,
       lose: false,
     })
     this.props.clearBoard();
   }
   render() {
+    const { entries, results, win, lose } = this.state;
     return (
       <div id='game-column' className='column'>
         <div id='game-table'>
@@ -82,10 +94,20 @@ class Game extends React.Component {
             </p>
             <table>
               <tbody>
-                {Object.keys(this.state.entries).map((key) => {
+                {Object.keys(entries).map((key) => {
                   return (
                     <tr key={key}>
-                      <td>{this.state.entries[key]}</td>
+                      <td>
+                        <div style={wrapperStyle}>
+                          {entries[key] &&
+                            entries[key].map((color, index) => {
+                              return (
+                                <Circle key={index} color={color} size='10px' />
+                              )
+                            })
+                          }
+                        </div>
+                      </td>
                     </tr>
                   )
                 })}
@@ -99,10 +121,20 @@ class Game extends React.Component {
             </p>
             <table>
               <tbody>
-                {Object.keys(this.state.results).map((key) => {
+                {Object.keys(results).map((key) => {
                   return (
                     <tr key={key}>
-                      <td>{this.state.results[key]}</td>
+                      <td>
+                        <div style={wrapperStyle}>
+                          {results[key] &&
+                            results[key].map((color, index) => {
+                              return (
+                                <Circle key={index} color={color} size='10px' />
+                              )
+                            })
+                          }
+                        </div>
+                      </td>
                     </tr>
                   )
                 })}
@@ -111,8 +143,8 @@ class Game extends React.Component {
           </div>
         </div>
         <div id='game-ending'>
-          {this.state.win == true ? <p className='win_or_lose'>You win!</p> : null}
-          {this.state.lose == true ? <p className='win_or_lose'>You lose!</p> : null}
+          {win == true ? <p className='win_or_lose'>You win!</p> : null}
+          {lose == true ? <p className='win_or_lose'>You lose!</p> : null}
         </div>
 
         <InputButton handleSubmit={this.restartGame} value='Play again'/>

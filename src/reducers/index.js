@@ -17,15 +17,6 @@ const plays = (state = [], action) => {
   }
 };
 
-/*const board = (state = [], action) => {
-  switch (action.type) {
-    case 'CLEAR_BOARD':
-      return []
-    default:
-      return state
-  }
-};*/
-
 const GameBoard = combineReducers({
   plays,
 });

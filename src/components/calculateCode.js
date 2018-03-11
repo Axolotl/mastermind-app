@@ -1,11 +1,23 @@
-import React from 'react';
+//import React from 'react';
+
+const colors = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'purple', 
+]
 
 const calculateCode = () => {
-  let secret_code = [];
+  let code = [];
+  let randoms = [...Array(4)].map(() => Math.floor((Math.random() * 6) + 1));
+
   for (let i=0; i<4; i++) {
-    secret_code.push(Math.floor((Math.random() * 6) + 1));
+    code.push(colors[randoms[i]-1]);
   };
-  return secret_code.join('');
+
+  return code;
 }
 
 export default calculateCode;

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 
 import Circle from './Circle';
-import ItemTypes from './ItemTypes'
+import ItemTypes from './ItemTypes';
 
 const itemSource = {
   beginDrag(props) {
-    props.setCurrentDrag(props.color)
+    props.setCurrentDrag(props.color);
     return {}
   }
 }
