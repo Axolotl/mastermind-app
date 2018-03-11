@@ -102,7 +102,7 @@ class Game extends React.Component {
                           {entries[key] &&
                             entries[key].map((color, index) => {
                               return (
-                                <Circle key={index} color={color} size='10px' />
+                                <Circle key={index} color={color} size='10px' margin='0px 5px'/>
                               )
                             })
                           }
@@ -129,7 +129,7 @@ class Game extends React.Component {
                           {results[key] &&
                             results[key].map((color, index) => {
                               return (
-                                <Circle key={index} color={color} size='10px' />
+                                <Circle key={index} color={color} size='10px' margin='0px 5px'/>
                               )
                             })
                           }
