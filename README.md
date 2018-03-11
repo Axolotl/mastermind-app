@@ -1,17 +1,17 @@
-Mastermind App
-a project by Axolotl
+###Mastermind
+####a project by Axolotl
 
----
 
-welcome to the README. 
+Project hosted on Firebase. [Link.](https://react-mastermind-axolotl.firebaseapp.com/)
 
-Notes to follow as project progresses. 
 
 Setup instructions: 
-npm install
+`npm install`
+
 
 Build instructions:
-npm run build
+`npm run build`
+
 
 Live load instructions:
-npm run start
+`npm run start`
