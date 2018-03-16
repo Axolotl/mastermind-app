@@ -12,7 +12,7 @@ const buttonStyle = {
   fontWeight: 'bold',
 }
 
-class InputButton extends Component {
+class Button extends Component {
   render() {
     return (
       <form onClick={this.props.handleSubmit}>
@@ -25,4 +25,4 @@ class InputButton extends Component {
   }
 }
 
-export default InputButton
+export default Button

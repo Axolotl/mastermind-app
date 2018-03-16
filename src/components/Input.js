@@ -5,26 +5,16 @@ import { connect } from 'react-redux';
 import { addPlay } from '../actions';
 import { compose } from 'redux';
 
-import CircleDrag from './CircleDrag';
-import CircleDrop from './CircleDrop';
-import InputButton from './InputButton';
+import Drag from './Drag';
+import Drop from './Drop';
+import Button from './Button';
+import ErrorText from './ErrorText';
+import Divider from './Divider';
+import Wrapper from './CircleWrapper';
 
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'purple', 
-]
+import { colors } from './Colors';
 
-const wrapperStyle = {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-}
-
-class InputDraggable extends Component {
+class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,34 +55,35 @@ class InputDraggable extends Component {
     return (
       <div>
 
-        <div style={wrapperStyle}>
+        <Wrapper>
           {colors.map((color, index) => {
             return(
-              <CircleDrag 
+              <Drag 
                 key={'color' + index.toString()} 
                 color={color}
                 setCurrentDrag={this.setCurrentDrag}/>
             )
           })}
-        </div>
+        </Wrapper>
 
-        <p style={{fontWeight: 'bold'}}>--------------------</p>
-        <div style={wrapperStyle}>
+        <Divider />
+
+        <Wrapper>
           {this.state.inputs.map((color, index) => {
             return (
-              <CircleDrop 
+              <Drop 
                 key={'input' + index.toString()} 
                 color={this.state.inputs[index]} 
                 index={index}
                 changeCircleColor={this.changeCircleColor}/>
             )
           })}
-        </div>
+        </Wrapper>
         
-        <InputButton handleSubmit={this.handleSubmit} value='Submit'/>
+        <Button handleSubmit={this.handleSubmit} value='Submit'/>
 
         {this.state.invalid && 
-          <p id='error-text'>Invalid entry. Please fill all circles.</p> 
+          <ErrorText>Invalid entry. Please fill all circles.</ErrorText> 
         }
       </div>
     )
@@ -102,4 +93,4 @@ class InputDraggable extends Component {
 export default compose(
   DragDropContext(HTML5Backend),
   connect()
-)(InputDraggable);
+)(Input);

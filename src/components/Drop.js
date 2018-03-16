@@ -16,7 +16,7 @@ function collect(connect, monitor) {
   }
 }
 
-class CircleDrop extends Component {
+class Drop extends Component {
   render() {
     const { connectDropTarget, color = 'white' } = this.props;
     return connectDropTarget(
@@ -27,4 +27,4 @@ class CircleDrop extends Component {
   }
 }
 
-export default DropTarget(ItemTypes.ITEM, itemTarget, collect)(CircleDrop)
+export default DropTarget(ItemTypes.ITEM, itemTarget, collect)(Drop)

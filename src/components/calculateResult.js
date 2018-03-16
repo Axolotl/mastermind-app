@@ -1,5 +1,3 @@
-import React from 'react';
-
 const calculateResult = (play, code) => {
   let result = [];
 
@@ -7,30 +5,26 @@ const calculateResult = (play, code) => {
   play = Array.from(play);
   code = Array.from(code);
 
-  console.log('play ' + play);
-  console.log('code ' + code);
-
-  //first pass check for items that match value and index
-  //then change those values so they are not found again on the second pass
-  //values to ignore in play changed to 7, in code changed to 8
-  for (let i=0; i<4; i++) {
-    if (play[i] == code[i]) {
+  //first pass checks shared colors that also share an index
+  //then replaces them with empty objects so they are ignored
+  play.map((color, i) => {
+    if (color == code[i]) {
       result.push('black');
-      play.splice(i, 1, '7');
-      code.splice(i, 1, '8');
+      play.splice(i, 1, {});
+      code.splice(i, 1, {});
     }
-  }
+  });
 
-  //second pass check for items that match value but differ index
-  //then change their values so one value in play doesn't ping multiple values in code
-  for (let i=0; i<4; i++) {
-    let foundAt = code.indexOf(play[i]);
+  //second pass checks for shared colors that differ in index
+  //then replaces them with empty objects so they are ignored
+  play.map((color, i) => {
+    let foundAt = code.indexOf(color);
     if (foundAt >= 0) {
       result.push('white');
-      play.splice(i, 1, '7');
-      code.splice(foundAt, 1, '8');
+      play.splice(i, 1, {});
+      code.splice(foundAt, 1,{});
     }
-  }
+  });
 
   return result
 }

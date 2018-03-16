@@ -1,23 +1,10 @@
-//import React from 'react';
-
-const colors = [
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'purple', 
-]
+import { colors } from './Colors';
 
 const calculateCode = () => {
-  let code = [];
-  let randoms = [...Array(4)].map(() => Math.floor((Math.random() * 6) + 1));
+  //create an empty four length array populated with random whole numbers from 0 to colors length
+  //map over it and replace it with items from colors using the random numbers and index
 
-  for (let i=0; i<4; i++) {
-    code.push(colors[randoms[i]-1]);
-  };
-
-  return code;
+  return [...Array(4)].map(() => Math.floor(Math.random() * colors.length)).map(i => colors[i])
 }
 
 export default calculateCode;

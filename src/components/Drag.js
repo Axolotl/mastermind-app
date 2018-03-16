@@ -18,7 +18,7 @@ function collect(connect, monitor) {
   }
 }
 
-class CircleDrag extends Component {
+class Drag extends Component {
   render() {
     const { isDragging, connectDragSource, src, color = 'white' } = this.props;
     return connectDragSource(
@@ -29,4 +29,4 @@ class CircleDrag extends Component {
   }
 }
 
-export default DragSource(ItemTypes.ITEM, itemSource, collect)(CircleDrag)
+export default DragSource(ItemTypes.ITEM, itemSource, collect)(Drag)

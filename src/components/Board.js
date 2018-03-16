@@ -1,19 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import InputButton from './InputButton';
+import Button from './Button';
 import calculateResult from './calculateResult';
 import calculateCode from './calculateCode';
 import Circle from './Circle';
-
-const wrapperStyle = {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-}
+import Outcome from './OutcomeText';
+import Wrapper from './CircleWrapper';
 
 const winningPlay = [...Array(4)].map(()=>'black').join('');
 
-class Game extends React.Component {
+class Board extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,7 +94,7 @@ class Game extends React.Component {
                   return (
                     <tr key={key}>
                       <td>
-                        <div style={wrapperStyle}>
+                        <Wrapper>
                           {entries[key] &&
                             entries[key].map((color, index) => {
                               return (
@@ -106,7 +102,7 @@ class Game extends React.Component {
                               )
                             })
                           }
-                        </div>
+                        </Wrapper>
                       </td>
                     </tr>
                   )
@@ -125,7 +121,7 @@ class Game extends React.Component {
                   return (
                     <tr key={key}>
                       <td>
-                        <div style={wrapperStyle}>
+                        <Wrapper>
                           {results[key] &&
                             results[key].map((color, index) => {
                               return (
@@ -133,7 +129,7 @@ class Game extends React.Component {
                               )
                             })
                           }
-                        </div>
+                        </Wrapper>
                       </td>
                     </tr>
                   )
@@ -143,14 +139,14 @@ class Game extends React.Component {
           </div>
         </div>
         <div id='game-ending'>
-          {win == true ? <p className='win_or_lose'>You win!</p> : null}
-          {lose == true ? <p className='win_or_lose'>You lose!</p> : null}
+          {win == true ? <Outcome>You win!</Outcome> : null}
+          {lose == true ? <Outcome>You lose!</Outcome> : null}
         </div>
 
-        <InputButton handleSubmit={this.restartGame} value='Play again'/>
+        <Button handleSubmit={this.restartGame} value='Play again'/>
       </div>
     )
   }
 }
 
-export default Game;
+export default Board;

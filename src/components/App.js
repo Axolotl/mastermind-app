@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 
-import ControlText from './ControlText';
-import InputDraggable from './InputDraggable';
+import Explainer from './Explainer';
+import Input from './Input';
 import MapPlayToBoard from '../containers/MapPlayToBoard';
+import Column from './Column';
+
+const appStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  height: '100vh',
+  fontFamily: "'Open Sans', sans-serif",
+}
 
 class App extends Component {
   render() {
     return (
-      <div id='app-container'>
+      <div style={appStyle}>
 
-        <div id='control-column' className='column'>
-          <ControlText />
-          <InputDraggable />
-        </div>
+        <Column>
+          <Explainer />
+          <Input />
+        </Column>
 
-        <MapPlayToBoard />
+        <Column> 
+          <MapPlayToBoard />
+        </Column>
 
       </div>
     )
