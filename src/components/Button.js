@@ -12,17 +12,13 @@ const buttonStyle = {
   fontWeight: 'bold',
 }
 
-class Button extends Component {
-  render() {
-    return (
-      <form onClick={this.props.handleSubmit}>
-        <input 
-          type='button' 
-          style={buttonStyle} 
-          value={this.props.value}/>
-      </form>
-    )
-  }
-}
+const Button = ({ handleSubmit, value }) => (
+  <form onClick={handleSubmit}>
+    <input 
+      type='button' 
+      style={buttonStyle} 
+      value={value}/>
+  </form>
+)
 
 export default Button

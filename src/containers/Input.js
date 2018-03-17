@@ -7,10 +7,10 @@ import { compose } from 'redux';
 
 import Drag from './Drag';
 import Drop from './Drop';
-import Button from './Button';
-import ErrorText from './ErrorText';
-import Divider from './Divider';
-import Wrapper from './CircleWrapper';
+import Button from '../components/Button';
+import ErrorText from '../components/ErrorText';
+import Divider from '../components/Divider';
+import Wrapper from '../components/FlexWrapper';
 
 import { colors } from './Colors';
 
@@ -23,34 +23,38 @@ class Input extends Component {
       invalid: false,
     }
   }
+
   changeCircleColor = (index)  => {
     const { inputs } = this.state;
     inputs.splice(index, 1, this.state.current);
     this.setState({inputs: inputs})
   }
+
   setCurrentDrag = (color) => {
     this.setState({current: color})
   }
+
   handleSubmit = (e) => {
-    e.preventDefault()
-    let count = 0;
-    for (let i=0;i<4;i++) {
-      if (this.state.inputs[i] != null) {
-        count++;
+    e.preventDefault();
+    let abort = false;
+
+    this.state.inputs.map(input => {
+      if (input == null) {
+        console.log('this')
+        this.setState({invalid: true});
+        abort = true;
       }
-    }
-    if (count == 4) {
+    })
+
+    if (!abort) {
       this.props.dispatch(addPlay(this.state.inputs));
       this.setState({
         inputs: [...Array(4)],
         invalid: false,
-      })
+      });
     }
-    else {
-      this.setState({invalid: true})
-    }
-    
   }
+
   render() {
     return (
       <div>

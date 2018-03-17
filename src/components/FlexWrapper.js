@@ -7,8 +7,8 @@ const wrapperStyle = {
   flexWrap: 'wrap',
 };
 
-const CircleWrapper = ({ children }) => (
+const FlexWrapper = ({ children }) => (
   <div style={wrapperStyle}>{children}</div>
 )
 
-export default CircleWrapper
+export default FlexWrapper
