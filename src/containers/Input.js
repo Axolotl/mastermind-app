@@ -40,7 +40,6 @@ class Input extends Component {
 
     this.state.inputs.map(input => {
       if (input == null) {
-        console.log('this')
         this.setState({invalid: true});
         abort = true;
       }
