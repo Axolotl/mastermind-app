@@ -5,6 +5,7 @@ import BoardContainer from './BoardContainer';
 
 function mapStateToProps(state) {
   return {
+    code: state.code,
     plays: state.plays,
   }
 }

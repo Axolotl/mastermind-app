@@ -25,9 +25,9 @@ class Input extends Component {
   }
 
   changeCircleColor = (index)  => {
-    const { inputs } = this.state;
-    inputs.splice(index, 1, this.state.current);
-    this.setState({inputs: inputs})
+    let { inputs } = this.state;
+    let newInputs = inputs.slice(0, index).concat(this.state.current).concat(inputs.slice(index+1));
+    this.setState({inputs: newInputs})
   }
 
   setCurrentDrag = (color) => {

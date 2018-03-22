@@ -10,7 +10,7 @@ class BoardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: calculateCode(),
+      code: this.props.setCode(),
       entries: [...Array(10)],
       results: [...Array(10)],
       outcome: null,
@@ -19,8 +19,9 @@ class BoardContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
    if (this.props.plays != nextProps.plays) {
-    let entries = nextProps.plays.map(play => play.num);
-    let results = entries.map(entry => calculateResult(entry, this.state.code));
+    let entries = nextProps.plays.map(play => play.entry);
+    //let results = entries.map(entry => calculateResult(entry, this.state.code));
+    let results = nextProps.plays.map(play => play.result);
     const cutoff = results.map(result => result.join('')).indexOf([...Array(4)].map(() => 'black').join(''));
     this.setState({outcome: null});
 
@@ -47,6 +48,7 @@ class BoardContainer extends Component {
 
   restartGame = (e) => {
     e.preventDefault();
+    this.props.setCode();
     this.setState({
       code: calculateCode(),
       outcome: null,
