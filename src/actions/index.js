@@ -44,3 +44,31 @@ export const clearBoard = () => {
     type: 'CLEAR_BOARD'
   }
 };
+
+export const setCurrent = (current) => {
+  return {
+    type: 'SET_CURRENT',
+    current,
+  }
+}
+
+export const addInput = (input, index) => {
+  return {
+    type: 'ADD_INPUT',
+    input,
+    index,
+  }
+}
+
+export const clearInputs = () => {
+  return {
+    type: 'CLEAR_INPUTS'
+  }
+}
+
+export const setInvalid = (bool) => {
+  return {
+    type: 'SET_INVALID',
+    bool,
+  }
+}

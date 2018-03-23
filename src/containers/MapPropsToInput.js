@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions';
-
+import { bindActionCreators, compose } from 'redux';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
-import { compose } from 'redux';
-
+import * as actionCreators from '../actions';
 import Input from './Input';
 
 function mapStateToProps(state) {
   return {
     outcome: state.outcome,
+    current: state.current,
+    inputs: state.inputs,
+    invalid: state.invalid,
   }
 }
 

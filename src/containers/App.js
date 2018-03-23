@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-//import Input from './Input';
 import MapPropsToInput from './MapPropsToInput';
 import MapPropsToBoard from './MapPropsToBoard';
 

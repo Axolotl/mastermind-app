@@ -10,46 +10,34 @@ import Wrapper from '../components/FlexWrapper';
 import { colors } from './Colors';
 
 class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.props.setCode();
-    this.state = {
-      current: '',
-      inputs: [...Array(4)],
-      invalid: false,
-    }
-  }
-
   changeCircleColor = (index)  => {
-    if (!this.props.outcome) {
-      let { inputs } = this.state;
-      let newInputs = inputs.slice(0, index).concat(this.state.current).concat(inputs.slice(index+1));
-      this.setState({inputs: newInputs, invalid: false})
-    }
+    const { setInvalid, addInput, current } = this.props;
+    setInvalid(false);
+    addInput(current, index);
+
   }
 
   setCurrentDrag = (color) => {
-    this.setState({current: color})
+    const { setCurrent } = this.props;
+    setCurrent(color);
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     let abort = false;
+    const { inputs, addPlay, clearInputs, setInvalid } = this.props;
 
-
-    this.state.inputs.map(input => {
+    inputs.map(input => {
       if (input == null) {
-        this.setState({invalid: true});
+        setInvalid(true);
         abort = true;
       }
     })
 
     if (!abort) {
-      this.props.addPlay(this.state.inputs);
-      this.setState({
-        inputs: [...Array(4)],
-        invalid: false,
-      });
+      addPlay(this.props.inputs);
+      clearInputs();
+      setInvalid(false);
     }
   }
 
@@ -75,11 +63,11 @@ class Input extends Component {
             <Divider />
 
             <Wrapper>
-              {this.state.inputs.map((color, index) => {
+              {this.props.inputs.map((color, index) => {
                 return (
                   <Drop 
                     key={'input' + index.toString()} 
-                    color={this.state.inputs[index]} 
+                    color={this.props.inputs[index]} 
                     index={index}
                     changeCircleColor={this.changeCircleColor}/>
                 )
@@ -88,7 +76,7 @@ class Input extends Component {
             
             <Button handleSubmit={this.handleSubmit} value='Submit'/>
 
-            {this.state.invalid && 
+            {this.props.invalid && 
               <ErrorText>Invalid entry. Please fill all circles.</ErrorText> 
             }
           </div>
