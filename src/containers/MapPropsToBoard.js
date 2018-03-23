@@ -5,8 +5,9 @@ import BoardContainer from './BoardContainer';
 
 function mapStateToProps(state) {
   return {
-    code: state.code,
-    plays: state.plays,
+    entries: state.plays.map(play => play.entry),
+    results: state.plays.map(play => play.result),
+    outcome: state.outcome,
   }
 }
 
@@ -14,7 +15,7 @@ function mapDispachToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-const MapPlayToBoard = connect(mapStateToProps, mapDispachToProps)(BoardContainer);
+const MapPropsToBoard = connect(mapStateToProps, mapDispachToProps)(BoardContainer);
 
 
-export default MapPlayToBoard;
+export default MapPropsToBoard;

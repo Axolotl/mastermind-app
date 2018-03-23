@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import Input from './Input';
-import MapPlayToBoard from './MapPlayToBoard';
+//import Input from './Input';
+import MapPropsToInput from './MapPropsToInput';
+import MapPropsToBoard from './MapPropsToBoard';
 
 import Explainer from '../components/Explainer';
 import Column from '../components/Column';
@@ -14,11 +15,11 @@ class App extends Component {
 
         <Column>
           <Explainer />
-          <Input />
+          <MapPropsToInput />
         </Column>
 
         <Column> 
-          <MapPlayToBoard />
+          <MapPropsToBoard />
         </Column>
 
       </Wrapper>

@@ -1,5 +1,5 @@
 import calculateCode from '../containers/calculateCode';
-//let nextPlay = 0;
+import calculateResult from '../containers/calculateResult';
 
 export const setCode = () => {
   return {
@@ -10,29 +10,37 @@ export const setCode = () => {
 
 export const addPlay = entry => {
   return (dispatch, getState) => {
-    const { code } = getState();
-    dispatch(setBoard(entry, code));
+    const { code, plays } = getState();
+    const result = calculateResult(entry, code);
+
+    dispatch(setBoard(entry, result));
+
+    if (result.join('') == [...Array(4)].map(() => 'black').join('')) {
+      dispatch(setOutcome('win'));
+    }
+    else if ((plays != undefined) && (plays.length == 9)){
+      dispatch(setOutcome('lose'));
+    }
   }
 };
 
 export const setBoard = (entry, code) => {
   return {
     type: 'ADD_PLAY',
-    //id: nextPlay++,
     entry,
     code,
   }
 }
 
+export const setOutcome = outcome => {
+  return {
+    type: 'SET_OUTCOME',
+    outcome,
+  }
+}
+
 export const clearBoard = () => {
-  //nextPlay = 0;
   return {
     type: 'CLEAR_BOARD'
   }
 };
-
-// what do i need to add to shift the game logic to redux? 
-// code, entries, results, outcome
-// code needs to be called, add play already exists, 
-// results and 
-

@@ -7,65 +7,35 @@ import Outcome from '../components/OutcomeText';
 import Board from '../components/Board';
 
 class BoardContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      code: this.props.setCode(),
-      entries: [...Array(10)],
-      results: [...Array(10)],
-      outcome: null,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-   if (this.props.plays != nextProps.plays) {
-    let entries = nextProps.plays.map(play => play.entry);
-    //let results = entries.map(entry => calculateResult(entry, this.state.code));
-    let results = nextProps.plays.map(play => play.result);
-    const cutoff = results.map(result => result.join('')).indexOf([...Array(4)].map(() => 'black').join(''));
-    this.setState({outcome: null});
-
-    if (cutoff >= 0) {
-      entries = [...Array(cutoff+1)].map((o,i) => entries[i]);
-      results = [...Array(cutoff+1)].map((o,i) => results[i]);
-      this.setState({outcome: 'win'});
+  fillArray = (array) => {
+    if (array != undefined) {
+      return [...Array(10)].map((o,i) => array[i]);
     }
-
-    else if (entries.length >= 10) {
-      this.setState({outcome: 'lose'});
-    }
-
-    entries = [...Array(10)].map((o,i) => entries[i]);
-    results = [...Array(10)].map((o,i) => results[i]);
-
-    this.setState({
-      entries: entries,
-      results: results,
-    })
-
+    else {
+      return [...Array(10)]
     }
   }
 
   restartGame = (e) => {
     e.preventDefault();
-    this.props.setCode();
-    this.setState({
-      code: calculateCode(),
-      outcome: null,
-    })
-    this.props.clearBoard();
+    const { clearBoard, setOutcome, setCode } = this.props;
+    clearBoard();
+    setOutcome(null);
+    setCode();
+
   }
 
   render() {
-    const { entries, results, outcome } = this.state;
-    const data = {Entries: entries, Results: results,};
+    const { entries, results, outcome } = this.props;
+
+    const data = {Entries: this.fillArray(entries), Results: this.fillArray(results),};
 
     return (
       <div>
         <Board data={data} />
 
         {outcome && 
-          <Outcome>You {this.state.outcome}!</Outcome>}
+          <Outcome>You {outcome}!</Outcome>}
 
         <Button handleSubmit={this.restartGame} value='Play again'/>
       </div>

@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import calculateResult from '../containers/calculateResult';
 
 const code = (state = [], action) => {
   switch (action.type) {
@@ -16,9 +15,8 @@ const plays = (state = [], action) => {
       return [
         ...state,
         {
-          //id: action.id,
           entry: action.entry,
-          result: calculateResult(action.entry, action.code),
+          result: action.code,
         }
       ]
     case 'CLEAR_BOARD':
@@ -28,10 +26,19 @@ const plays = (state = [], action) => {
   }
 };
 
+const outcome = (state = null, action) => {
+  switch (action.type) {
+    case 'SET_OUTCOME':
+      return action.outcome
+    default:
+      return state
+  }
+}
 
 const GameBoard = combineReducers({
   code,
   plays,
+  outcome,
 });
 
 export default GameBoard;
