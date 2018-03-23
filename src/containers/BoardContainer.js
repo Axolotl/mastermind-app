@@ -22,12 +22,10 @@ class BoardContainer extends Component {
     clearBoard();
     setOutcome(null);
     setCode();
-
   }
 
   render() {
     const { entries, results, outcome } = this.props;
-
     const data = {Entries: this.fillArray(entries), Results: this.fillArray(results),};
 
     return (
@@ -38,6 +36,7 @@ class BoardContainer extends Component {
           <Outcome>You {outcome}!</Outcome>}
 
         <Button handleSubmit={this.restartGame} value='Play again'/>
+
       </div>
     )
   }
