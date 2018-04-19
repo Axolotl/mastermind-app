@@ -4,7 +4,7 @@
   "description": "Mastermind App a project by Axolotl",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "concurrently \"webpack-dev-server --open\" \"nodemon server\"",
     "build": "webpack"
   },
   "keywords": [],
@@ -33,6 +33,16 @@
     "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.2",
+    "concurrently": "^3.5.1",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.3",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "react": "^16.0.0",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
@@ -40,6 +50,8 @@
     "react-redux": "^5.0.6",
     "reduce-reducers": "^0.1.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.37.6"
   }
 }

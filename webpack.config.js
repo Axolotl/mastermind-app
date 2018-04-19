@@ -6,6 +6,11 @@ module.exports = {
   entry: [
     './index.js',
   ],
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:8000'
+    }
+  },
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
