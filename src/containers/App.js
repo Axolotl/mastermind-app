@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import MapPropsToInput from './MapPropsToInput';
 import MapPropsToBoard from './MapPropsToBoard';
 
-import Explainer from '../components/Explainer';
+import ExplainerTitle from '../components/ExplainerTitle';
+import ExplainerSubtitle from '../components/ExplainerSubtitle';
 import Column from '../components/Column';
 import Wrapper from '../components/AppWrapper';
-import MapPropsToScores from './MapPropsToScores';
+import Divider from '../components/Divider';
+import MapPropsToInfoContainer from './MapPropsToInfoContainer';
 
 class App extends Component {
   render() {
@@ -13,9 +15,13 @@ class App extends Component {
       <Wrapper>
 
         <Column>
-          <Explainer />
-          <MapPropsToScores />
+          <ExplainerTitle />
+          <ExplainerSubtitle />
           <MapPropsToInput />
+
+          <Divider />
+
+          <MapPropsToInfoContainer />
         </Column>
 
         <Column> 

@@ -65,6 +65,14 @@ const invalid = (state = false, action) => {
   }
 }
 
+const infoField = (state = 'explainer', action) => {
+  switch (action.type) {
+    case 'SET_INFO_FIELD':
+      return action.selection
+    default:
+      return state
+  }
+}
 
 // here begin reducers for handling database
 
@@ -89,6 +97,7 @@ const GameBoard = combineReducers({
   inputs,
   invalid,
   scores,
+  infoField,
 });
 
 export default GameBoard;

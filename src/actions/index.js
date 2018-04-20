@@ -74,6 +74,13 @@ export const setInvalid = (bool) => {
   }
 }
 
+export const setInfoField = (selection) => {
+  return {
+    type: 'SET_INFO_FIELD',
+    selection
+  }
+}
+
 // here begin action creators for handling the database
 
 export const dbScoresResults = (data) => {
