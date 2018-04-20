@@ -68,12 +68,12 @@ const invalid = (state = false, action) => {
 
 // here begin reducers for handling database
 
-const scores = (state = {scores: ''}, action) => {
+const scores = (state = {}, action) => {
   switch (action.type) {
     case 'DB_SCORES_RESULTS': 
-      return { results: "Test Succeeded!  " + action.data }
+      return action.data
     case 'DB_SCORES_ERROR':
-      return { results: "Test Failed!  " + action.data }
+      return "Test Failed!"
     default:
       return state
   }

@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 // Serve our api
 require('./routes')(app);
 app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the ahhhhhhhhhhh land',
+  message: 'Welcome to arrrrrrggg land',
 }));
 
 // Set port

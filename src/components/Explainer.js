@@ -6,7 +6,7 @@ import Link from './Link';
 
 const Explainer = () => (
   <div>
-    {/*<Title>Mastermind</Title>*/}
+    <Title>Mastermind</Title>
     <Text>
       Built with React. Source <Link href='https://github.com/Axolotl/mastermind-app'>here</Link>.
     </Text>

@@ -5,7 +5,7 @@ import MapPropsToBoard from './MapPropsToBoard';
 import Explainer from '../components/Explainer';
 import Column from '../components/Column';
 import Wrapper from '../components/AppWrapper';
-import MigrateToDB from './MigrateToDB';
+import MapPropsToScores from './MapPropsToScores';
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
 
         <Column>
           <Explainer />
-          <MigrateToDB />
+          <MapPropsToScores />
           <MapPropsToInput />
         </Column>
 
