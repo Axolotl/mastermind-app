@@ -9,9 +9,10 @@ class ScoresContainer extends Component {
   }
   render () {
     // pass data to presentational component
+    const { scores } = this.props;
 
     return (
-      <Scores data={this.props.scores} />
+      <Scores data={scores} />
     )
   }
 }

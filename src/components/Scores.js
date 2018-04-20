@@ -1,5 +1,4 @@
 import React from 'react';
-import Wrapper from './FlexWrapper';
 
 /* data format for scores
 [{"name":"test","score":100},
@@ -8,8 +7,14 @@ import Wrapper from './FlexWrapper';
  {"name":"test4","score":7}]
 */
 
+const scoresStyle = {
+  margin: '20px',
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 const Scores = ({ data }) => (
-  <Wrapper>
+  <div style={scoresStyle}>
     <table>
       <tbody>
         {Object.keys(data).map(key => (
@@ -20,7 +25,7 @@ const Scores = ({ data }) => (
         ))}
       </tbody>
     </table>
-  </Wrapper>
+  </div>
 )
 
 
