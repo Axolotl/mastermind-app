@@ -88,24 +88,24 @@ export const dbScoresGet = () => {
   return dispatch => {
     axios.get(`/api/scores`)
       .then(res => {
-        // strip out all the information besides the names and scores
-        // response is in json format, a list of objects of lists of key/value pairs
+        // strip out all information besides the names and scores while maintaining the format:
+        // [{name: name1, score: score1}, {name: name2, score: score2}, ...]
+        // to do this we build a new list "filtered" by pushing new "combo" objects to it
         let filtered = [];
-        // begin by mapping over response
+
         res.data.map(unit => {
-          let score = {};
-          // we want to end up with a new list of objects, each object in the format {name: "name", score: "score"}
+          let combo = {};
+
           Object.entries(unit).map(item => {
             if (item[0] == "name" || item[0] == "score") {
-              //once we the name and the score, add them to our new object
-              score = { ...score, [item[0]]: item[1] }
+              combo = { ...combo, [item[0]]: item[1] }
             }
           })
-          // now push thta object to our main list/json object. 
-          filtered.push(score);
+
+          filtered.push(combo);
         })
 
-        // dispacth our new object in the form it will get mapped to the component for rendering
+        // dispatch new filtered object reducer for mapping to component 
         dispatch(dbScoresResults(filtered))
       })
       .catch(err => dispatch(dbScoresError(err)))

@@ -10,16 +10,14 @@ import Wrapper from './FlexWrapper';
 
 const Scores = ({ data }) => (
   <Wrapper>
-    {console.log("typeof data: " + typeof(data))}
     <table>
       <tbody>
-        {Object.keys(data).map(key => {
-          console.log(data[key])
-          return (<tr key={key}>
-                      <td>{data[key].name}</td>
-                      <td>{data[key].score}</td>
-                    </tr>)
-        })}
+        {Object.keys(data).map(key => (
+          <tr key={key}>
+            <td>{data[key].name}</td>
+            <td>{data[key].score}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   </Wrapper>
