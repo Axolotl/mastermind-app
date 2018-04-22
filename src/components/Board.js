@@ -8,7 +8,7 @@ const Board = ({ data }) => (
   <Wrapper>
 
     {Object.entries(data).map((set, i) => (
-      <div key={i} style={{margin: '20px 15px 20px 15px'}}>
+      <div key={i} style={{margin: '0px 15px 20px 15px'}}>
         <p style={{margin: '5px', fontSize: '1em',}}>
           {set[0]}
         </p>

@@ -5,6 +5,7 @@ import calculateCode from './calculateCode';
 import Button from '../components/Button';
 import Outcome from '../components/OutcomeText';
 import Board from '../components/Board';
+import MapPropsToSubmitScore from './MapPropsToSubmitScore';
 
 class BoardContainer extends Component {
   fillArray = (array) => {
@@ -32,10 +33,19 @@ class BoardContainer extends Component {
       <div>
         <Board data={data} />
 
-        {outcome && 
-          <Outcome>You {outcome}!</Outcome>}
+        {outcome == 'lose' ? 
+          <p>You lose! Better luck next time!</p>
+          : ''
+        }
+
+        {outcome == 'win' ?
+          <p>You win! Your score is x. Would you like to submit your score to the hall of fame?</p>
+          : ''
+        }
 
         <Button handleSubmit={this.restartGame} value='Play again'/>
+
+        <MapPropsToSubmitScore />
 
       </div>
     )

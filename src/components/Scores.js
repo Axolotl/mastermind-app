@@ -11,11 +11,18 @@ const scoresStyle = {
   margin: '20px',
   display: 'flex',
   justifyContent: 'center',
+  maxHeight: '100px',
+}
+
+const tableStyle = {
+  height: '220px',
+  display: 'block',
+  overflow: 'auto',
 }
 
 const Scores = ({ data }) => (
   <div style={scoresStyle}>
-    <table>
+    <table style={tableStyle}>
       <tbody>
         {Object.keys(data).map(key => (
           <tr key={key}>

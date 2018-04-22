@@ -1,6 +1,8 @@
-import axios from 'axios';
 import calculateCode from '../containers/calculateCode';
 import calculateResult from '../containers/calculateResult';
+
+export * from './fetchScores';
+export * from './dispatchScore';
 
 export const setCode = () => {
   return {
@@ -78,43 +80,5 @@ export const setInfoField = (selection) => {
   return {
     type: 'SET_INFO_FIELD',
     selection
-  }
-}
-
-// here begin action creators for handling the database
-
-export const dbScoresResults = (data) => {
-  return { type: 'DB_SCORES_RESULTS', data }
-}
-
-export const dbScoresError = (data) => {
-  return { type: 'DB_SCORES_ERROR', data }
-}
-
-export const dbScoresGet = () => {
-  return dispatch => {
-    axios.get(`/api/scores`)
-      .then(res => {
-        // strip out all information besides the names and scores while maintaining the format:
-        // [{name: name1, score: score1}, {name: name2, score: score2}, ...]
-        // to do this we build a new list "filtered" by pushing new "combo" objects to it
-        let filtered = [];
-
-        res.data.map(unit => {
-          let combo = {};
-
-          Object.entries(unit).map(item => {
-            if (item[0] == "name" || item[0] == "score") {
-              combo = { ...combo, [item[0]]: item[1] }
-            }
-          })
-
-          filtered.push(combo);
-        })
-
-        // dispatch new filtered object reducer for mapping to component 
-        dispatch(dbScoresResults(filtered))
-      })
-      .catch(err => dispatch(dbScoresError(err)))
   }
 }

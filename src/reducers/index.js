@@ -78,16 +78,15 @@ const infoField = (state = 'explainer', action) => {
 
 const scores = (state = {}, action) => {
   switch (action.type) {
-    case 'DB_SCORES_RESULTS': 
+    case 'FETCH_SCORES_SUCCESS': 
       return action.data
-    case 'DB_SCORES_ERROR':
-      return "Test Failed!"
+    case 'FETCH_SCORES_ERROR':
+      return "Fetch Scores Failed!"
     default:
       return state
   }
 }
 
-//
 
 const GameBoard = combineReducers({
   code,
