@@ -1,8 +1,6 @@
 TASKS, TO DOS, ETC
 
 
-write action creators and reducers to handle dispatching updates to the scores in the server
-hook up dispatch to SubmitScore component
 
 configure timer state, pass to component: create based on timestamping first play and diffing it with win state
 

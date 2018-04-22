@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form'
 import calculateCode from '../containers/calculateCode';
 
 const code = (state = calculateCode(), action) => {
@@ -97,6 +98,7 @@ const GameBoard = combineReducers({
   invalid,
   scores,
   infoField,
+  form: formReducer,
 });
 
 export default GameBoard;
