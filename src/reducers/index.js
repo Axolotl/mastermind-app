@@ -88,6 +88,24 @@ const scores = (state = {}, action) => {
   }
 }
 
+const startTime = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_START_TIME':
+      return action.data
+    default:
+      return state
+  }
+}
+
+const newScore = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_NEW_SCORE':
+      return action.data
+    default:
+      return state
+  }
+}
+
 
 const GameBoard = combineReducers({
   code,
@@ -98,6 +116,8 @@ const GameBoard = combineReducers({
   invalid,
   scores,
   infoField,
+  startTime,
+  newScore,
   form: formReducer,
 });
 

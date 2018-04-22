@@ -6,7 +6,8 @@ configure timer state, pass to component: create based on timestamping first pla
 
 
 sort scores object in action creator before passing it to state
-make ScoresContainer scrollable
 break InfoContainer up into smaller components
 
 somehow offload text content to someplace that's not hardcoded to the component for ease up updating
+
+fix the win/lose screen so that shit isn't falling off the screen anymore and so that you can still see the high scores and howto

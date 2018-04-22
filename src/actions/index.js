@@ -3,6 +3,9 @@ import calculateResult from '../containers/calculateResult';
 
 export * from './fetchScores';
 export * from './dispatchScore';
+export * from './calculateScore';
+
+import { setStartTime, setNewScore, calculateScore } from './calculateScore';
 
 export const setCode = () => {
   return {
@@ -18,7 +21,12 @@ export const addPlay = entry => {
 
     dispatch(setBoard(entry, result));
 
+    if (Object.keys(plays).length == 0) {
+      dispatch(setStartTime());
+    }
+
     if (result.join('') == [...Array(4)].map(() => 'black').join('')) {
+      dispatch(calculateScore());
       dispatch(setOutcome('win'));
     }
     else if ((plays != undefined) && (plays.length == 9)){
