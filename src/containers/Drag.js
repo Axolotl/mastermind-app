@@ -20,9 +20,9 @@ function collect(connect, monitor) {
 
 class Drag extends Component {
   render() {
-    const { isDragging, connectDragSource, src, color = 'white' } = this.props;
+    const { isDragging, connectDragSource, src, color = 'white', setCurrentDrag } = this.props;
     return connectDragSource(
-      <div>
+      <div onClick={() => setCurrentDrag(color)}>
         <Circle color={color} />
       </div>
     )

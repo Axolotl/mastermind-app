@@ -18,9 +18,9 @@ function collect(connect, monitor) {
 
 class Drop extends Component {
   render() {
-    const { connectDropTarget, color = 'white' } = this.props;
+    const { connectDropTarget, color = 'white', changeCircleColor, index } = this.props;
     return connectDropTarget(
-      <div>
+      <div onClick={() => changeCircleColor(index)}>
         <Circle color={color} />
       </div>
     )
