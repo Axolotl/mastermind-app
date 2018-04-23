@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     current: state.current,
     inputs: state.inputs,
     invalid: state.invalid,
+    gameOverError: state.gameOverError,
   }
 }
 

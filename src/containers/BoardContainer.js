@@ -19,10 +19,12 @@ class BoardContainer extends Component {
 
   restartGame = (e) => {
     e.preventDefault();
-    const { clearBoard, setOutcome, setCode } = this.props;
+    const { clearBoard, setOutcome, setCode, setGameOverError, clearInputs } = this.props;
     clearBoard();
     setOutcome(null);
     setCode();
+    setGameOverError(false);
+    clearInputs();
   }
 
   render() {
@@ -33,19 +35,17 @@ class BoardContainer extends Component {
       <div>
         <Board data={data} />
 
+        <Button handleSubmit={this.restartGame} value='Play again'/>
+
         {outcome == 'lose' ? 
           <p>You lose! Better luck next time!</p>
           : ''
         }
 
         {outcome == 'win' ?
-          <p>You win! Your score is x. Would you like to submit your score to the hall of fame?</p>
+          <MapPropsToSubmitScore />
           : ''
-        }
-
-        <Button handleSubmit={this.restartGame} value='Play again'/>
-
-        <MapPropsToSubmitScore />
+        } 
 
       </div>
     )

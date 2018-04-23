@@ -10,6 +10,7 @@ import SubmitScore from './SubmitScore';
 function mapStateToProps(state) {
   return {
     infoField: state.infoField,
+    score: state.newScore,
   }
 }
 

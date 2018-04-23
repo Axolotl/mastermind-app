@@ -90,3 +90,10 @@ export const setInfoField = (selection) => {
     selection
   }
 }
+
+export const setGameOverError = (bool) => {
+  return {
+    type: 'SET_GAME_OVER_ERROR',
+    bool,
+  }
+}

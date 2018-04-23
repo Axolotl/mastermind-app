@@ -8,6 +8,8 @@ const columnStyle = {
   borderRadius: '3px',
   borderStyle: 'solid',
   borderWidth: '2px',
+  display: 'block',
+  overflow: 'auto',
 }
 
 const Column = ({ children }) => (

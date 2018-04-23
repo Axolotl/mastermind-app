@@ -14,7 +14,6 @@ class Input extends Component {
     const { setInvalid, addInput, current } = this.props;
     setInvalid(false);
     addInput(current, index);
-
   }
 
   setCurrentDrag = (color) => {
@@ -25,16 +24,22 @@ class Input extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let abort = false;
-    const { inputs, addPlay, clearInputs, setInvalid } = this.props;
+    const { inputs, addPlay, clearInputs, setInvalid, setGameOverError, outcome, gameOverError } = this.props;
 
     inputs.map(input => {
       if (input == null) {
-        setInvalid(true);
         abort = true;
+        if (!outcome) {
+          setInvalid(true);
+        }
       }
     })
 
-    if (!abort) {
+    if (outcome != null) {
+      setGameOverError(true);
+    }
+
+    if (!abort && (outcome == null)) {
       addPlay(this.props.inputs);
       clearInputs();
       setInvalid(false);
@@ -42,45 +47,48 @@ class Input extends Component {
   }
 
   render() {
-    const { outcome } = this.props;
+    const { outcome, gameOverError } = this.props;
 
     return (
       <div>
 
-        {!outcome &&
-          <div>
-            <Wrapper>
-              {colors.map((color, index) => {
-                return(
-                  <Drag 
-                    key={'color' + index.toString()} 
-                    color={color}
-                    setCurrentDrag={this.setCurrentDrag}/>
-                )
-              })}
-            </Wrapper>
+        <div>
+          <Wrapper>
+            {colors.map((color, index) => {
+              return(
+                <Drag 
+                  key={'color' + index.toString()} 
+                  color={color}
+                  setCurrentDrag={this.setCurrentDrag}/>
+              )
+            })}
+          </Wrapper>
 
-            <Divider />
+          <Divider />
 
-            <Wrapper>
-              {this.props.inputs.map((color, index) => {
-                return (
-                  <Drop 
-                    key={'input' + index.toString()} 
-                    color={this.props.inputs[index]} 
-                    index={index}
-                    changeCircleColor={this.changeCircleColor}/>
-                )
-              })}
-            </Wrapper>
-            
-            <Button handleSubmit={this.handleSubmit} value='Submit'/>
+          <Wrapper>
+            {this.props.inputs.map((color, index) => {
+              return (
+                <Drop 
+                  key={'input' + index.toString()} 
+                  color={this.props.inputs[index]} 
+                  index={index}
+                  changeCircleColor={this.changeCircleColor}/>
+              )
+            })}
+          </Wrapper>
+          
+          <Button handleSubmit={this.handleSubmit} value='Submit'/>
 
-            {this.props.invalid && 
-              <ErrorText>Invalid entry. Please fill all circles.</ErrorText> 
-            }
-          </div>
-        }
+          {this.props.invalid && 
+            <ErrorText>Invalid entry. Please fill all circles.</ErrorText> 
+          }
+
+          {gameOverError &&
+            <ErrorText>Game over. You cannot make more plays to this game.</ErrorText>
+          }
+
+        </div>
 
       </div>
     )

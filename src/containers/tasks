@@ -2,12 +2,14 @@ TASKS, TO DOS, ETC
 
 
 
-configure timer state, pass to component: create based on timestamping first play and diffing it with win state
 
 
 sort scores object in action creator before passing it to state
-break InfoContainer up into smaller components
+break InfoContainer up into smaller components / fix other components that have gotten a little messy
 
 somehow offload text content to someplace that's not hardcoded to the component for ease up updating
 
-fix the win/lose screen so that shit isn't falling off the screen anymore and so that you can still see the high scores and howto
+handle what happens to submit score component once score has been submitted
+reload database scores after score is submitted
+
+incorporate clicking to the drap and drop functionality

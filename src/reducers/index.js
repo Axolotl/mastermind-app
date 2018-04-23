@@ -66,6 +66,15 @@ const invalid = (state = false, action) => {
   }
 }
 
+const gameOverError = (state = false, action) => {
+  switch (action.type) {
+    case 'SET_GAME_OVER_ERROR':
+      return action.bool
+    default:
+      return state
+  }
+}
+
 const infoField = (state = 'explainer', action) => {
   switch (action.type) {
     case 'SET_INFO_FIELD':
@@ -118,6 +127,7 @@ const GameBoard = combineReducers({
   infoField,
   startTime,
   newScore,
+  gameOverError,
   form: formReducer,
 });
 

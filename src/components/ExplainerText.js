@@ -3,7 +3,7 @@ import React from 'react';
 const textStyle = {
   margin: '10px 5px',
   textAlign: 'left',
-  fontSize: '.9em',
+  fontSize: '.85em',
 }
 
 const ExplainerText = ({ children }) => (

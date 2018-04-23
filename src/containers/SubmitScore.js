@@ -29,8 +29,8 @@ class SubmitScore extends Component {
   // }
 
   submit = values => {
-    const { newScore, dispatchScore } = this.props;
-    dispatchScore(values.name, newScore);
+    const { score, dispatchScore } = this.props;
+    dispatchScore(values.name, score);
 
 
 
@@ -44,13 +44,13 @@ class SubmitScore extends Component {
   }
 
   render() {
-    const { newScore: score } = this.props;
+    const { score } = this.props;
     const { setStartTime, calculateScore } = this.props;
 
     return (
-      <div>
+      <div style={{marginBottom: '15px'}}>
 
-        <Text>You recieved a score of {score}. Would you like to submit this to the record? To do so, type in your name in the box and press enter.</Text>
+        <Text>You recieved a score of {score}. Would you like to submit this to the record? To do so, type in your name in the box and press submit.</Text>
         <NameForm onSubmit={this.submit} />
 
         {/*<form onClick={() => setStartTime()}>
