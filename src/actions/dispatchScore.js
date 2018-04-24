@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fetchScores, fetchScoresSuccess, fetchScoresError } from './fetchScores';
 
 export const dispatchScoreSuccess = (data) => {
   return { type: 'DISPATCH_SCORES_SUCCESS', data }
@@ -15,9 +16,12 @@ export const dispatchScore = (name, score) => {
       score: score,
     })
       .then(res => {
-        console.log(`attempted axios.post with ${name} and ${score}`);
-        dispatch(dispatchScoreSuccess(res))
+        dispatch(dispatchScoreSuccess(res));
+        dispatch(fetchScores());
       })
-      .catch(err => dispatch(dispatchScoreError(err)))
+      .catch(err => {
+        dispatch(dispatchScoreError(err));
+        dispatch(fetchScores());
+      })
   }
 }

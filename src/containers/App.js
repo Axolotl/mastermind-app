@@ -6,7 +6,6 @@ import ExplainerTitle from '../components/ExplainerTitle';
 import ExplainerSubtitle from '../components/ExplainerSubtitle';
 import Column from '../components/Column';
 import Wrapper from '../components/AppWrapper';
-import Divider from '../components/Divider';
 import MapPropsToInfoContainer from './MapPropsToInfoContainer';
 
 class App extends Component {
@@ -18,8 +17,6 @@ class App extends Component {
           <ExplainerTitle />
           <ExplainerSubtitle />
           <MapPropsToInput />
-
-          <Divider />
 
           <MapPropsToInfoContainer />
         </Column>

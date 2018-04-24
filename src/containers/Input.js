@@ -4,7 +4,6 @@ import Drag from './Drag';
 import Drop from './Drop';
 import Button from '../components/Button';
 import ErrorText from '../components/ErrorText';
-import Divider from '../components/Divider';
 import Wrapper from '../components/FlexWrapper';
 
 import { colors } from './Colors';
@@ -63,8 +62,6 @@ class Input extends Component {
               )
             })}
           </Wrapper>
-
-          <Divider />
 
           <Wrapper>
             {this.props.inputs.map((color, index) => {

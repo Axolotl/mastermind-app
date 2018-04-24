@@ -29,7 +29,12 @@ export const fetchScores = () => {
           filtered.push(combo);
         })
 
-        // dispatch new filtered object reducer for mapping to component 
+        // sort by high score (or rather low score as the case may be)
+        filtered.sort((a,b) => {
+          return a.score - b.score;
+        })
+
+        // dispatch new filtered object reducer for mapping to component
         dispatch(fetchScoresSuccess(filtered))
       })
       .catch(err => dispatch(fetchScoresError(err)))

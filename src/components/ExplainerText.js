@@ -1,7 +1,7 @@
 import React from 'react';
 
 const textStyle = {
-  margin: '10px 5px',
+  margin: '10px 5px 5px 5px',
   textAlign: 'left',
   fontSize: '.85em',
 }

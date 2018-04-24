@@ -4,12 +4,8 @@ TASKS, TO DOS, ETC
 
 
 
-sort scores object in action creator before passing it to state
 break InfoContainer up into smaller components / fix other components that have gotten a little messy
 
 somehow offload text content to someplace that's not hardcoded to the component for ease up updating
 
-handle what happens to submit score component once score has been submitted
-reload database scores after score is submitted
 
-incorporate clicking to the drap and drop functionality

@@ -8,14 +8,14 @@ import React from 'react';
 */
 
 const scoresStyle = {
-  margin: '20px',
+  margin: '5px',
   display: 'flex',
   justifyContent: 'center',
   maxHeight: '100px',
 }
 
 const tableStyle = {
-  height: '220px',
+  height: '190px',
   display: 'block',
   overflow: 'auto',
 }

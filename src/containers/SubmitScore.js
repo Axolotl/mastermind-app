@@ -4,13 +4,14 @@ import Text from '../components/ExplainerText';
 
 class SubmitScore extends Component {
   submit = values => {
-    const { score, dispatchScore, setNewScore } = this.props;
+    const { score, dispatchScore, setNewScore, fetchScoresSuccess } = this.props;
     dispatchScore(values.name, score);
     setNewScore('');
+    fetchScoresSuccess('');
   }
 
   render() {
-    const { score, setStartTime, calculateScore } = this.props;
+    const { score } = this.props;
 
     return (
       <div style={{marginBottom: '15px'}}>

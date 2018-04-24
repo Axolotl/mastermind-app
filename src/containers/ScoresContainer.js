@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Scores from '../components/Scores';
+import Text from '../components/ExplainerText';
 
 class ScoresContainer extends Component {
   componentDidMount() {
@@ -15,9 +16,13 @@ class ScoresContainer extends Component {
     return (
       <div>
         {Object.keys(scores).length == 0 ? 
-          <p>Fetching scores from database</p> : ''
+          <p>Fetching scores from database</p> 
+        :
+        <div>
+          <Text>Scores are measured in seconds to completion. Lower is better.</Text>
+          <Scores data={scores} />
+        </div>
         }
-        <Scores data={scores} />
       </div>
     )
   }

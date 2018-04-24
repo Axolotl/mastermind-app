@@ -17,13 +17,15 @@
       "stage-0"
     ],
     "plugins": [
-      "transform-class-properties"
+      "transform-class-properties",
+      "transform-regenerator"
     ]
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.2",
     "concurrently": "^3.5.1",
