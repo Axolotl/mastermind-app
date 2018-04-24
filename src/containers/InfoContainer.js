@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 import Explainer from '../components/Explainer';
 import MapPropsToScores from './MapPropsToScores';
 import Wrapper from '../components/FlexWrapper';
-
-const buttonStyle = {
-  display: 'inline-block',
-  borderRadius: '3px',
-  padding: '0.5rem 0',
-  margin: '0.5rem 0.25rem 0rem 0.25rem',
-  width: '7rem',
-  background: 'transparent',
-  color: 'black',
-  border: '1px solid black',
-}
+import Button from '../components/InfoContainerButton';
 
 class InfoContainer extends Component {
   changeDisplayInfo = (selection) => {
@@ -26,19 +16,17 @@ class InfoContainer extends Component {
     return (
       <Wrapper>
 
-        <form onClick={() => this.changeDisplayInfo('explainer')}>
-          <input 
-            type='button' 
-            style={Object.assign({}, {fontWeight: infoField == 'explainer' ? 'bold':''}, buttonStyle)}
-            value='How to play'/>
-        </form>
+        <Button 
+          handleSubmit={() => this.changeDisplayInfo('explainer')} 
+          value='How to play' 
+          infoField={{fontWeight: infoField == 'explainer' ? 'bold':''}} 
+        />
 
-        <form onClick={() => this.changeDisplayInfo('scores')}>
-          <input 
-            type='button' 
-            style={Object.assign({}, {fontWeight: infoField == 'scores' ? 'bold':''}, buttonStyle)}
-            value='High Scores'/>
-        </form>
+        <Button 
+          handleSubmit={() => this.changeDisplayInfo('scores')} 
+          value='High scores' 
+          infoField={{fontWeight: infoField == 'scores' ? 'bold':''}} 
+        />
 
         {infoField == 'explainer' ? 
           <Explainer /> : ''

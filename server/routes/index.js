@@ -1,5 +1,3 @@
-// const todosController = require('../controllers').todos;
-// const todoItemsController = require('../controllers').todoItems;
 const scoresController = require('../controllers').scores;
 
 module.exports = (app) => {
@@ -9,19 +7,4 @@ module.exports = (app) => {
   app.post('/api/scores', scoresController.create);
   app.get('/api/scores', scoresController.list);
   app.delete('/api/scores/:scoreId', scoresController.destroy);
-
-  // app.post('/api/todos', todosController.create);
-  // app.get('/api/todos', todosController.list);
-  // app.get('/api/todos/:todoId', todosController.retrieve);
-  // app.put('/api/todos/:todoId', todosController.update);
-  // app.delete('/api/todos/:todoId', todosController.destroy);
-
-  // app.post('/api/todos/:todoId/items', todoItemsController.create);
-  // app.put('/api/todos/:todoId/items/:todoItemId', todoItemsController.update);
-  // app.delete(
-  //   '/api/todos/:todoId/items/:todoItemId', todoItemsController.destroy
-  // );
-  // app.all('/api/todos/:todoId/items', (req, res) => res.status(405).send({
-  //   message: 'Method Not Allowed',
-  // }));
 };

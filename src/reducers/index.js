@@ -84,8 +84,6 @@ const infoField = (state = 'explainer', action) => {
   }
 }
 
-// here begin reducers for handling database
-
 const scores = (state = {}, action) => {
   switch (action.type) {
     case 'FETCH_SCORES_SUCCESS': 

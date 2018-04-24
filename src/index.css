@@ -13,12 +13,6 @@ html, body {
 
 table {
   border-collapse: collapse;
-
-
-/*  display: block;
-  max-height: 100px;
-  overflow: scroll !important;
-  */
 }
 
 td {

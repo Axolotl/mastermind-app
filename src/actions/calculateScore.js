@@ -1,16 +1,18 @@
-export const setStartTime = () => {
-  return { type: 'SET_START_TIME', data: new Date()}
-}
+// calculateScore works by comparing a Date object created at the submit of first play
+// with a Date object created at the termination of the game
+// in this way total time eclipsed in the game from beginning to end is recorded
 
-export const setNewScore = (score) => {
-  return { type: 'SET_NEW_SCORE', data: score }
-}
+export const setStartTime = () => ({
+  type: 'SET_START_TIME', data: new Date()
+})
 
-export const calculateScore = () => {
-  return (dispatch, getState) => {
-    const { startTime } = getState();
-    const newScore = Math.floor(((new Date()) - startTime)/1000);
+export const setNewScore = (score) => ({
+  type: 'SET_NEW_SCORE', data: score 
+})
 
-    dispatch(setNewScore(newScore));
-  }
+export const calculateScore = () => (dispatch, getState) => {
+  const { startTime } = getState();
+  const newScore = Math.floor(((new Date()) - startTime)/1000);
+
+  dispatch(setNewScore(newScore));
 }

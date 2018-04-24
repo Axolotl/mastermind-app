@@ -4,21 +4,20 @@ const buttonStyle = {
   display: 'inline-block',
   borderRadius: '3px',
   padding: '0.5rem 0',
-  margin: '0.5rem 1rem',
+  margin: '0.5rem 0.25rem 0rem 0.25rem',
   width: '7rem',
   background: 'transparent',
   color: 'black',
-  border: '2px solid black',
-  fontWeight: 'bold',
+  border: '1px solid black',
 }
 
-const Button = ({ handleSubmit, value }) => (
+const InfoContainerButton = ({ handleSubmit, value, infoField }) => (
   <form onClick={handleSubmit}>
     <input 
       type='button' 
-      style={buttonStyle} 
+      style={Object.assign({}, infoField, buttonStyle)}
       value={value}/>
   </form>
 )
 
-export default Button
+export default InfoContainerButton

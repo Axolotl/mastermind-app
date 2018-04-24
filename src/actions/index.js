@@ -1,99 +1,59 @@
 import calculateCode from '../containers/calculateCode';
-import calculateResult from '../containers/calculateResult';
+
+// for ease of navigation and development, all large actions creators (mostly meaning those employing thunk)
+// have been moved to their own files. They are exported from index here.
 
 export * from './fetchScores';
 export * from './dispatchScore';
 export * from './calculateScore';
+export * from './addPlay';
 
-import { setStartTime, setNewScore, calculateScore } from './calculateScore';
+export const setCode = () => ({
+  type: 'SET_CODE',
+  code: calculateCode(),
+})
 
-export const setCode = () => {
-  return {
-    type: 'SET_CODE',
-    code: calculateCode(),
-  }
-}
+export const setBoard = (entry, code) => ({
+  type: 'ADD_PLAY',
+  entry,
+  code,
+})
 
-export const addPlay = entry => {
-  return (dispatch, getState) => {
-    const { code, plays } = getState();
-    const result = calculateResult(entry, code);
+export const setOutcome = outcome => ({
+  type: 'SET_OUTCOME',
+  outcome,
+})
 
-    dispatch(setBoard(entry, result));
+export const clearBoard = () => ({
+  type: 'CLEAR_BOARD'
+});
 
-    if (Object.keys(plays).length == 0) {
-      dispatch(setStartTime());
-    }
+export const setCurrent = (current) => ({
+  type: 'SET_CURRENT',
+  current,
+})
 
-    if (result.join('') == [...Array(4)].map(() => 'black').join('')) {
-      dispatch(calculateScore());
-      dispatch(setOutcome('win'));
-    }
-    else if ((plays != undefined) && (plays.length == 9)){
-      dispatch(setOutcome('lose'));
-    }
-  }
-};
+export const addInput = (input, index) => ({
+  type: 'ADD_INPUT',
+  input,
+  index,
+})
 
-export const setBoard = (entry, code) => {
-  return {
-    type: 'ADD_PLAY',
-    entry,
-    code,
-  }
-}
+export const clearInputs = () => ({
+  type: 'CLEAR_INPUTS'
+})
 
-export const setOutcome = outcome => {
-  return {
-    type: 'SET_OUTCOME',
-    outcome,
-  }
-} 
+export const setInvalid = (bool) => ({
+  type: 'SET_INVALID',
+  bool,
+})
 
-export const clearBoard = () => {
-  return {
-    type: 'CLEAR_BOARD'
-  }
-};
+export const setInfoField = (selection) => ({
+  type: 'SET_INFO_FIELD',
+  selection
+})
 
-export const setCurrent = (current) => {
-  return {
-    type: 'SET_CURRENT',
-    current,
-  }
-}
-
-export const addInput = (input, index) => {
-  return {
-    type: 'ADD_INPUT',
-    input,
-    index,
-  }
-}
-
-export const clearInputs = () => {
-  return {
-    type: 'CLEAR_INPUTS'
-  }
-}
-
-export const setInvalid = (bool) => {
-  return {
-    type: 'SET_INVALID',
-    bool,
-  }
-}
-
-export const setInfoField = (selection) => {
-  return {
-    type: 'SET_INFO_FIELD',
-    selection
-  }
-}
-
-export const setGameOverError = (bool) => {
-  return {
-    type: 'SET_GAME_OVER_ERROR',
-    bool,
-  }
-}
+export const setGameOverError = (bool) => ({
+  type: 'SET_GAME_OVER_ERROR',
+  bool,
+})

@@ -17,7 +17,6 @@ class App extends Component {
           <ExplainerTitle />
           <ExplainerSubtitle />
           <MapPropsToInput />
-
           <MapPropsToInfoContainer />
         </Column>
 

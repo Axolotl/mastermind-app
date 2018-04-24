@@ -1,5 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import Button from '../components/NameFormButton';
+import Wrapper from '../components/FlexWrapper';
 
 const wrapperStyle = {
   display: 'flex',
@@ -7,17 +9,6 @@ const wrapperStyle = {
   justifyContent: 'center',
   flexWrap: 'wrap',
 };
-
-const buttonStyle = {
-  display: 'inline-block',
-  borderRadius: '3px',
-  margin:'0 3px 0 3px',
-  width: '80px',
-  background: 'transparent',
-  color: 'black',
-  border: '1px solid black',
-  height: '22px',
-}
 
 let NameForm = props => {
   const { handleSubmit } = props
@@ -28,7 +19,7 @@ let NameForm = props => {
         <Field autoComplete='off' name='name' component='input' type='text' style={{width: '80px', border: '1px solid black', height: '18px'}} />
       </div>
 
-      <button style={buttonStyle} type="submit">Submit</button>
+      <Button />
 
     </form>
   )
