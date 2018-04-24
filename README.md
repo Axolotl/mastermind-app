@@ -1,8 +1,6 @@
 ### Mastermind
 #### a project by Axolotl
 ___
-Project hosted on Firebase. [Link.](https://react-mastermind-axolotl.firebaseapp.com/)
-
 
 Setup instructions: 
 `npm install`

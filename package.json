@@ -21,6 +21,9 @@
       "transform-regenerator"
     ]
   },
+  "engines": {
+    "node": "8.11.1"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
