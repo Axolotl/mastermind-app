@@ -14,25 +14,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //json parser
 app.use(bodyParser.json())
 
-//
-
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'build')))
 
-
-// Always return the main index.html, so react-router render the route in the client
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-// });
-
-
-//
-
 // Serve our api
 require('./routes')(app);
-// app.get('*', (req, res) => res.status(200).send({
-//   message: 'Welcome to arrrrrrggg land',
-// }));
 
 // Set port
 const PORT = process.env.PORT || 8000;
