@@ -4,7 +4,8 @@
   "description": "Mastermind App a project by Axolotl",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server --open\" \"nodemon server\"",
+    "start": "nodemon server",
+    "dev": "concurrently \"webpack-dev-server --open\" \"nodemon server\"",
     "build": "NODE_ENV='production' webpack -p"
   },
   "keywords": [],
