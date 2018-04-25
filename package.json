@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server",
+    "postinstall": "NODE_ENV='production' webpack -p",
     "dev": "concurrently \"webpack-dev-server --open\" \"nodemon server\"",
     "build": "NODE_ENV='production' webpack -p"
   },
