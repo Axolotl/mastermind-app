@@ -8,12 +8,7 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "rcnfgosh",
-    "password": "YxP_CAZzlG9DdAL1Utyh9fhqve4oatEP",
-    "database": "rcnfgosh",
-    "host": "elmer.db.elephantsql.com",
-    "port": 5432,
-    "dialect": "postgres"
+    "use_env_variable": "DATABASE_URL"
   }
 }
 
