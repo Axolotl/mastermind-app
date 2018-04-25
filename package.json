@@ -4,8 +4,8 @@
   "description": "Mastermind App a project by Axolotl",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server",
-    "postinstall": "NODE_ENV='production' webpack -p",
+    "start": "node ./server/index.js",
+    "postinstall": "npm run build",
     "dev": "concurrently \"webpack-dev-server --open\" \"nodemon server\"",
     "build": "NODE_ENV='production' webpack -p"
   },
