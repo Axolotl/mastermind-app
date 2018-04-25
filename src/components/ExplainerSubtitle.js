@@ -9,7 +9,7 @@ const textStyle = {
 
 const ExplainerSubtitle = () => (
   <p style={textStyle}>
-    Built with React. Source <Link href='https://github.com/Axolotl/mastermind-app'>here</Link>.
+    Built with React. Source <Link href='https://github.com/axolotl/mastermind-app'>here</Link>.
   </p>
 )
 
