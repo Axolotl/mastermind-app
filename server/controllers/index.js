@@ -1,5 +1,5 @@
-const scores = require('./scores');
+const scores = require("./scores");
 
 module.exports = {
-  scores,
+  scores
 };

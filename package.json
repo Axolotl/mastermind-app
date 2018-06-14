@@ -13,15 +13,8 @@
   "author": "Axolotl",
   "license": "ISC",
   "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-0"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-regenerator"
-    ]
+    "presets": ["env", "react", "stage-0"],
+    "plugins": ["transform-class-properties", "transform-regenerator"]
   },
   "engines": {
     "node": "8.11.1"

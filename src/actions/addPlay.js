@@ -1,6 +1,6 @@
-import calculateResult from '../containers/calculateResult';
-import { setStartTime, calculateScore } from './calculateScore';
-import { setBoard, setOutcome } from './index';
+import calculateResult from "../containers/calculateResult";
+import { setStartTime, calculateScore } from "./calculateScore";
+import { setBoard, setOutcome } from "./index";
 
 export const addPlay = entry => (dispatch, getState) => {
   const { code, plays } = getState();
@@ -12,11 +12,10 @@ export const addPlay = entry => (dispatch, getState) => {
     dispatch(setStartTime());
   }
 
-  if (result.join('') == [...Array(4)].map(() => 'black').join('')) {
+  if (result.join("") == [...Array(4)].map(() => "black").join("")) {
     dispatch(calculateScore());
-    dispatch(setOutcome('win'));
-  }
-  else if ((plays != undefined) && (plays.length == 9)){
-    dispatch(setOutcome('lose'));
+    dispatch(setOutcome("win"));
+  } else if (plays != undefined && plays.length == 9) {
+    dispatch(setOutcome("lose"));
   }
 };

@@ -9,7 +9,7 @@ const calculateResult = (play, code) => {
   //then replaces them with empty objects so they are ignored
   play.map((color, i) => {
     if (color == code[i]) {
-      result.push('black');
+      result.push("black");
       play.splice(i, 1, {});
       code.splice(i, 1, {});
     }
@@ -20,13 +20,13 @@ const calculateResult = (play, code) => {
   play.map((color, i) => {
     let foundAt = code.indexOf(color);
     if (foundAt >= 0) {
-      result.push('white');
+      result.push("white");
       play.splice(i, 1, {});
-      code.splice(foundAt, 1,{});
+      code.splice(foundAt, 1, {});
     }
   });
 
-  return result
-}
+  return result;
+};
 
 export default calculateResult;

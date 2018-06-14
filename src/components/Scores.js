@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /* data format for scores
 [{"name":"test","score":100},
@@ -8,17 +8,17 @@ import React from 'react';
 */
 
 const scoresStyle = {
-  margin: '5px',
-  display: 'flex',
-  justifyContent: 'center',
-  maxHeight: '100px',
-}
+  margin: "5px",
+  display: "flex",
+  justifyContent: "center",
+  maxHeight: "100px"
+};
 
 const tableStyle = {
-  height: '190px',
-  display: 'block',
-  overflow: 'auto',
-}
+  height: "190px",
+  display: "block",
+  overflow: "auto"
+};
 
 const Scores = ({ data }) => (
   <div style={scoresStyle}>
@@ -33,7 +33,6 @@ const Scores = ({ data }) => (
       </tbody>
     </table>
   </div>
-)
+);
 
-
-export default Scores
+export default Scores;
